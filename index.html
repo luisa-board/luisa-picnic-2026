@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LUISA Picnic Day 2026 · RSVP</title>
+<meta name="description" content="RSVP for the LUISA Picnic Day at Nockamixon State Park." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #FAF8F4;
+    --forest: #2B4C2B;
+    --forest-deep: #1A3520;
+    --sage: #7A9E7A;
+    --sage-light: #E8F0E8;
+    --meadow: #4A7C59;
+    --bark: #5C4033;
+    --bark-light: #8B6F5E;
+    --gold: #D4A843;
+    --gold-light: #F5EDD8;
+    --amber: #E8923E;
+    --sky: #87CEEB;
+    --text: #1A1A1A;
+    --text-mid: #555;
+    --text-light: #888;
+    --border: #E0DCD6;
+    --white: #FFFFFF;
+    --radius: 12px;
+  }
+
+  body {
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 520px;
+    margin: 0 auto;
+    padding: 0 1rem 3rem;
+  }
+
+  /* ══════════════ HERO ══════════════ */
+  .hero {
+    position: relative;
+    background: linear-gradient(165deg, var(--forest-deep) 0%, var(--meadow) 50%, var(--gold) 100%);
+    border-radius: 0 0 24px 24px;
+    padding: 2.5rem 1.5rem 2rem;
+    text-align: center;
+    overflow: hidden;
+    margin-bottom: -20px;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background:
+      radial-gradient(circle at 15% 20%, rgba(255,255,255,0.08) 0%, transparent 50%),
+      radial-gradient(circle at 85% 60%, rgba(212,168,67,0.2) 0%, transparent 40%),
+      radial-gradient(circle at 50% 90%, rgba(135,206,235,0.15) 0%, transparent 40%);
+    pointer-events: none;
+  }
+  /* Decorative SVG trees/leaves */
+  .hero-deco {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    padding: 6px 16px;
+    border-radius: 999px;
+    margin-bottom: 1rem;
+    border: 1px solid rgba(255,255,255,0.2);
+    position: relative;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 0.25rem;
+    letter-spacing: -0.5px;
+    position: relative;
+    text-shadow: 0 2px 20px rgba(0,0,0,0.15);
+  }
+  .hero h1 .emoji-leaf { font-size: 2rem; }
+  .hero .subtitle {
+    font-size: 15px;
+    color: rgba(255,255,255,0.85);
+    position: relative;
+    font-weight: 400;
+  }
+
+  /* ══════════════ INFO CARDS ══════════════ */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-bottom: 1.5rem;
+    padding-top: 32px;
+    position: relative;
+    z-index: 1;
+  }
+  .info-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px;
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .info-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .info-icon.green { background: var(--sage-light); }
+  .info-icon.gold { background: var(--gold-light); }
+  .info-icon.blue { background: #E3F2FD; }
+  .info-icon.brown { background: #F0E6DD; }
+  .info-card .label {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    color: var(--text-light);
+    margin-bottom: 1px;
+  }
+  .info-card .value {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.3;
+  }
+
+  /* ══════════════ WHAT TO EXPECT ══════════════ */
+  .expect-strip {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 2px 0 12px;
+    margin-bottom: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .expect-strip::-webkit-scrollbar { display: none; }
+  .expect-tag {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 8px 14px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-mid);
+    white-space: nowrap;
+  }
+
+  /* ══════════════ CARD ══════════════ */
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  }
+  .card-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--forest);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ══════════════ STEPS ══════════════ */
+  .step-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 1.25rem;
+    padding: 0 1rem;
+  }
+  .step-dot {
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 600;
+    color: var(--text-light);
+    background: var(--white);
+    transition: all 0.3s;
+    flex-shrink: 0;
+  }
+  .step-dot.active {
+    border-color: var(--forest);
+    background: var(--forest);
+    color: var(--white);
+    box-shadow: 0 0 0 4px rgba(43,76,43,0.12);
+  }
+  .step-dot.done {
+    border-color: var(--sage);
+    background: var(--sage);
+    color: var(--white);
+  }
+  .step-line {
+    flex: 1; height: 2px;
+    background: var(--border);
+    transition: background 0.3s;
+  }
+  .step-line.done { background: var(--sage); }
+
+  .step-labels {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 0.25rem;
+    margin-bottom: 1rem;
+  }
+  .step-label-text {
+    font-size: 11px;
+    color: var(--text-light);
+    text-align: center;
+    width: 70px;
+    font-weight: 500;
+  }
+  .step-label-text.active { color: var(--forest); }
+
+  /* ══════════════ FORM ══════════════ */
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group:last-child { margin-bottom: 0; }
+
+  label.field-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    margin-bottom: 6px;
+  }
+  label.field-label .optional {
+    font-weight: 400;
+    color: var(--text-light);
+    font-size: 12px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  select {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--white);
+    transition: border-color 0.2s, box-shadow 0.2s;
+    outline: none;
+  }
+  input:focus, select:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(122,158,122,0.15);
+  }
+  input::placeholder { color: #bbb; }
+  .hint {
+    font-size: 12px;
+    color: var(--text-light);
+    margin-top: 4px;
+  }
+
+  textarea {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    color: var(--text);
+    background: var(--white);
+    resize: vertical;
+    min-height: 70px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  textarea:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(122,158,122,0.15);
+  }
+  textarea::placeholder { color: #bbb; }
+
+  /* ══════════════ RADIO CARDS ══════════════ */
+  .radio-cards { display: flex; flex-direction: column; gap: 8px; }
+  .radio-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--white);
+  }
+  .radio-card:hover { border-color: var(--sage); background: #FAFFF9; }
+  .radio-card.selected {
+    border-color: var(--forest);
+    background: var(--sage-light);
+  }
+  .radio-card input { display: none; }
+  .radio-circle {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.2s;
+  }
+  .radio-card.selected .radio-circle { border-color: var(--forest); }
+  .radio-circle::after {
+    content: '';
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--forest);
+    transform: scale(0);
+    transition: transform 0.2s;
+  }
+  .radio-card.selected .radio-circle::after { transform: scale(1); }
+  .radio-label { font-size: 14px; color: var(--text); }
+
+  /* ══════════════ CHECK ══════════════ */
+  .check-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--text);
+    cursor: pointer;
+  }
+  .check-row input[type="checkbox"] {
+    width: 18px; height: 18px;
+    margin-top: 1px;
+    accent-color: var(--forest);
+    flex-shrink: 0;
+  }
+
+  /* ══════════════ ZELLE ══════════════ */
+  .zelle-box {
+    background: linear-gradient(135deg, var(--sage-light) 0%, var(--gold-light) 100%);
+    border: 1.5px solid rgba(122,158,122,0.3);
+    border-radius: var(--radius);
+    padding: 1.5rem;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    transition: opacity 0.3s;
+    position: relative;
+    overflow: hidden;
+  }
+  .zelle-box::before {
+    content: '';
+    position: absolute;
+    top: -20px; right: -20px;
+    width: 80px; height: 80px;
+    background: radial-gradient(circle, rgba(212,168,67,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+  .zelle-box.locked { opacity: 0.3; pointer-events: none; }
+  .zelle-label-top {
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--bark-light);
+    position: relative;
+  }
+  .zelle-amount {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--forest);
+    margin: 6px 0 4px;
+    position: relative;
+  }
+  .zelle-recipient {
+    font-size: 14px;
+    color: var(--text-mid);
+    position: relative;
+  }
+  .zelle-copy-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 10px 20px;
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+  }
+  .zelle-copy-btn:hover { border-color: var(--sage); background: #F8FFF8; }
+  .zelle-note {
+    font-size: 12px;
+    color: var(--bark-light);
+    margin-top: 10px;
+    position: relative;
+  }
+
+  /* ══════════════ BUTTONS ══════════════ */
+  .btn-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 1.5rem;
+  }
+  .btn {
+    flex: 1;
+    padding: 13px;
+    border-radius: 10px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: none;
+  }
+  .btn-back {
+    background: var(--white);
+    border: 1.5px solid var(--border);
+    color: var(--text-mid);
+  }
+  .btn-back:hover { border-color: var(--text-light); }
+  .btn-next {
+    background: linear-gradient(135deg, var(--forest) 0%, var(--meadow) 100%);
+    color: var(--white);
+    box-shadow: 0 2px 8px rgba(43,76,43,0.2);
+  }
+  .btn-next:hover { box-shadow: 0 4px 14px rgba(43,76,43,0.3); transform: translateY(-1px); }
+  .btn-next:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+  }
+
+  /* ══════════════ STATUS BANNER ══════════════ */
+  .status-banner {
+    padding: 10px 14px;
+    border-radius: 10px;
+    font-size: 12px;
+    margin-top: 1rem;
+    transition: all 0.3s;
+    font-weight: 500;
+  }
+  .status-banner.warn {
+    background: var(--gold-light);
+    color: var(--bark);
+    border: 1px solid rgba(212,168,67,0.25);
+  }
+  .status-banner.error {
+    background: #FEF0EE;
+    color: #B33;
+    border: 1px solid rgba(204,51,51,0.15);
+  }
+  .status-banner.success {
+    background: var(--sage-light);
+    color: var(--forest);
+    border: 1px solid rgba(122,158,122,0.3);
+  }
+
+  /* ══════════════ VISIBILITY ══════════════ */
+  .step-panel { display: none; }
+  .step-panel.active { display: block; }
+
+  /* ══════════════ SUCCESS ══════════════ */
+  .success-screen {
+    text-align: center;
+    padding: 2.5rem 1rem;
+  }
+  .success-icon {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, var(--sage-light) 0%, var(--gold-light) 100%);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 16px rgba(43,76,43,0.1);
+  }
+  .success-screen h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.6rem;
+    color: var(--forest);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  .success-screen p {
+    font-size: 14px;
+    color: var(--text-mid);
+    max-width: 320px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  /* ══════════════ FOOTER ══════════════ */
+  .footer {
+    text-align: center;
+    padding: 1.5rem 0;
+    font-size: 12px;
+    color: var(--text-light);
+    line-height: 1.8;
+  }
+  .footer a {
+    color: var(--meadow);
+    text-decoration: none;
+    font-weight: 500;
+  }
+  .footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<div class="hero">
+  <svg class="hero-deco" viewBox="0 0 520 60" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+    <path d="M0 60 Q60 20 130 40 Q200 55 260 30 Q320 10 390 35 Q450 55 520 25 L520 60Z" fill="rgba(250,248,244,0.08)"/>
+    <path d="M0 60 Q80 35 160 50 Q240 60 320 40 Q400 25 520 45 L520 60Z" fill="rgba(250,248,244,0.05)"/>
+  </svg>
+  <div class="hero-badge">🌿 LUISA · Lehigh University</div>
+  <h1>Picnic Day <span class="emoji-leaf">☀️</span></h1>
+  <p class="subtitle">Meet friends, relax by the lake, enjoy the day</p>
+</div>
+
+<div class="page">
+
+  <!-- ════════ INFO CARDS ════════ -->
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-icon green">📅</div>
+      <div>
+        <div class="label">Date</div>
+        <div class="value">Sat, Sep 12, 2026</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon blue">⏰</div>
+      <div>
+        <div class="label">Time</div>
+        <div class="value">11 AM – 5 PM</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon brown">📍</div>
+      <div>
+        <div class="label">Location</div>
+        <div class="value">Nockamixon State Park<br/>Lot 5 Pavilion</div>
+      </div>
+    </div>
+    <div class="info-card">
+      <div class="info-icon gold">🎟️</div>
+      <div>
+        <div class="label">Cost</div>
+        <div class="value">$5 per person</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════ WHAT TO EXPECT ════════ -->
+  <div class="expect-strip">
+    <span class="expect-tag">🍔 Food</span>
+    <span class="expect-tag">🥤 Drinks</span>
+    <span class="expect-tag">⚽ Games</span>
+    <span class="expect-tag">🎵 Music</span>
+    <span class="expect-tag">🏞️ Lake Views</span>
+    <span class="expect-tag">🤝 Great Company</span>
+  </div>
+
+  <!-- ════════ STEP INDICATOR ════════ -->
+  <div class="step-indicator" id="step-indicator">
+    <div class="step-dot active" id="dot-1">1</div>
+    <div class="step-line" id="line-1"></div>
+    <div class="step-dot" id="dot-2">2</div>
+    <div class="step-line" id="line-2"></div>
+    <div class="step-dot" id="dot-3">3</div>
+  </div>
+  <div class="step-labels" id="step-labels">
+    <span class="step-label-text active" id="lbl-1">Your Info</span>
+    <span class="step-label-text" id="lbl-2">Payment</span>
+    <span class="step-label-text" id="lbl-3">Details</span>
+  </div>
+
+  <!-- FORM -->
+  <form id="rsvp-form" action="https://formspree.io/f/xvkpbrap" method="POST">
+
+    <!-- ═══════ STEP 1 ═══════ -->
+    <div class="card step-panel active" id="step-1">
+      <div class="card-title">👋 Who's coming?</div>
+
+      <div class="form-group">
+        <label class="field-label" for="f-name">Full name</label>
+        <input type="text" id="f-name" name="name" required placeholder="e.g. Sara Ahmadi" autocomplete="name" />
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="f-email">Email</label>
+        <input type="email" id="f-email" name="email" required placeholder="you@lehigh.edu" autocomplete="email" />
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="f-phone">Phone <span class="optional">(optional)</span></label>
+        <input type="tel" id="f-phone" name="phone" placeholder="484-000-0000" autocomplete="tel" />
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="f-guests">How many people total (including you)?</label>
+        <select id="f-guests" name="guests" required>
+          <option value="">— Select —</option>
+          <option value="1">1 person — $5</option>
+          <option value="2">2 people — $10</option>
+          <option value="3">3 people — $15</option>
+          <option value="4">4 people — $20</option>
+          <option value="5">5 people — $25</option>
+        </select>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn btn-next" id="btn-to-2" disabled onclick="goStep(2)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- ═══════ STEP 2 ═══════ -->
+    <div class="card step-panel" id="step-2">
+      <div class="card-title">💳 Payment</div>
+
+      <div id="zelle-block" class="zelle-box locked">
+        <div class="zelle-label-top">Pay with Zelle</div>
+        <div class="zelle-amount" id="zelle-amount">$5</div>
+        <div class="zelle-recipient">to Morteza Ghorashi</div>
+        <button type="button" class="zelle-copy-btn" onclick="copyZelle()">
+          <span id="copy-icon">📋</span>
+          <span id="copy-text">484-937-1251 · Copy number</span>
+        </button>
+        <div class="zelle-note">Put your full name in the Zelle memo</div>
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="f-conf">Zelle confirmation number</label>
+        <input type="text" id="f-conf" name="zelle_confirmation" placeholder="e.g. 2026091212345" oninput="checkStep2()" />
+        <div class="hint">At least 8 characters. Check your bank app or Zelle email.</div>
+      </div>
+
+      <div class="form-group">
+        <label class="check-row">
+          <input type="checkbox" id="f-check" onchange="checkStep2()" />
+          <span>I confirm I sent the exact amount via Zelle with my full name in the memo.</span>
+        </label>
+      </div>
+
+      <div id="step2-status" class="status-banner warn">
+        Send the total via Zelle, then enter your confirmation number.
+      </div>
+
+      <input type="hidden" id="f-amount" name="total_amount" value="" />
+
+      <div class="btn-row">
+        <button type="button" class="btn btn-back" onclick="goStep(1)">← Back</button>
+        <button type="button" class="btn btn-next" id="btn-to-3" disabled onclick="goStep(3)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- ═══════ STEP 3 ═══════ -->
+    <div class="card step-panel" id="step-3">
+      <div class="card-title">🚗 A few more things</div>
+
+      <div class="form-group">
+        <label class="field-label">Transportation</label>
+        <div class="hint" style="margin-bottom: 8px;">Nockamixon is about 30 min from campus by car.</div>
+        <div class="radio-cards" id="transport-radios">
+          <label class="radio-card" onclick="selectRadio(this,'transport')">
+            <input type="radio" name="transport" value="I can drive and take others" />
+            <div class="radio-circle"></div>
+            <span class="radio-label">🚗 I can drive and take others</span>
+          </label>
+          <label class="radio-card" onclick="selectRadio(this,'transport')">
+            <input type="radio" name="transport" value="I need a ride" />
+            <div class="radio-circle"></div>
+            <span class="radio-label">🙋 I need a ride</span>
+          </label>
+          <label class="radio-card" onclick="selectRadio(this,'transport')">
+            <input type="radio" name="transport" value="I have my own ride" />
+            <div class="radio-circle"></div>
+            <span class="radio-label">👍 I have my own ride</span>
+          </label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="check-row">
+          <input type="checkbox" name="volunteer" value="Yes" />
+          <span>I can help with setup or cleanup 🙌</span>
+        </label>
+      </div>
+
+      <div class="form-group">
+        <label class="field-label" for="f-comments">Anything else? <span class="optional">(optional)</span></label>
+        <textarea id="f-comments" name="comments" placeholder="Questions, things you can bring, etc."></textarea>
+      </div>
+
+      <div class="btn-row">
+        <button type="button" class="btn btn-back" onclick="goStep(2)">← Back</button>
+        <button type="submit" class="btn btn-next" id="btn-submit">Submit RSVP 🎉</button>
+      </div>
+    </div>
+
+  </form>
+
+  <!-- ═══════ SUCCESS ═══════ -->
+  <div class="card step-panel" id="step-done">
+    <div class="success-screen">
+      <div class="success-icon">🌿</div>
+      <h2>You're in!</h2>
+      <p>We'll see you at Nockamixon on Sep 12. Keep an eye on the group chat for carpool details closer to the date.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    Questions? DM on Telegram <a href="https://t.me/maral20173" target="_blank">@maral20173</a><br/>
+    Hosted by LUISA – Lehigh University
+  </div>
+
+</div>
+
+<script>
+  let currentStep = 1;
+
+  function goStep(n) {
+    document.getElementById('step-' + currentStep).classList.remove('active');
+    document.getElementById('step-' + n).classList.add('active');
+    for (let i = 1; i <= 3; i++) {
+      const dot = document.getElementById('dot-' + i);
+      const lbl = document.getElementById('lbl-' + i);
+      dot.classList.remove('active','done');
+      lbl.classList.remove('active');
+      if (i < n) { dot.classList.add('done'); dot.textContent = '✓'; }
+      else if (i === n) { dot.classList.add('active'); dot.textContent = i; lbl.classList.add('active'); }
+      else { dot.textContent = i; }
+    }
+    document.getElementById('line-1').classList.toggle('done', n > 1);
+    document.getElementById('line-2').classList.toggle('done', n > 2);
+    currentStep = n;
+    if (n === 2) updateZelle();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // Step 1 validation
+  const nameEl = document.getElementById('f-name');
+  const emailEl = document.getElementById('f-email');
+  const guestsEl = document.getElementById('f-guests');
+  const btnTo2 = document.getElementById('btn-to-2');
+  function checkStep1() {
+    const ok = nameEl.value.trim() && emailEl.value.trim() && emailEl.validity.valid && guestsEl.value;
+    btnTo2.disabled = !ok;
+  }
+  nameEl.addEventListener('input', checkStep1);
+  emailEl.addEventListener('input', checkStep1);
+  guestsEl.addEventListener('change', checkStep1);
+
+  // Zelle
+  function updateZelle() {
+    const guests = parseInt(guestsEl.value) || 0;
+    const total = guests * 5;
+    document.getElementById('zelle-amount').textContent = '$' + total;
+    document.getElementById('f-amount').value = '$' + total;
+    const block = document.getElementById('zelle-block');
+    block.classList.toggle('locked', guests === 0);
+    checkStep2();
+  }
+
+  function checkStep2() {
+    const conf = document.getElementById('f-conf').value.trim();
+    const checked = document.getElementById('f-check').checked;
+    const confValid = /^[a-zA-Z0-9]{8,}$/.test(conf);
+    const guests = parseInt(guestsEl.value) || 0;
+    const total = guests * 5;
+    const banner = document.getElementById('step2-status');
+    const btnTo3 = document.getElementById('btn-to-3');
+
+    if (guests === 0) {
+      banner.className = 'status-banner warn';
+      banner.textContent = 'Go back and select the number of guests first.';
+    } else if (!conf) {
+      banner.className = 'status-banner warn';
+      banner.textContent = 'Send $' + total + ' via Zelle, then enter your confirmation number.';
+    } else if (!confValid) {
+      banner.className = 'status-banner error';
+      banner.textContent = 'Confirmation must be at least 8 letters/numbers. Check your Zelle receipt.';
+    } else if (!checked) {
+      banner.className = 'status-banner warn';
+      banner.textContent = 'Check the box above to continue.';
+    } else {
+      banner.className = 'status-banner success';
+      banner.textContent = 'Payment confirmed — continue to the last step!';
+    }
+    btnTo3.disabled = !(guests > 0 && confValid && checked);
+  }
+
+  function copyZelle() {
+    navigator.clipboard?.writeText('4849371251');
+    document.getElementById('copy-text').textContent = 'Copied! ✓';
+    document.getElementById('copy-icon').textContent = '✅';
+    setTimeout(() => {
+      document.getElementById('copy-text').textContent = '484-937-1251 · Copy number';
+      document.getElementById('copy-icon').textContent = '📋';
+    }, 1500);
+  }
+
+  // Radio cards
+  function selectRadio(el, groupName) {
+    document.querySelectorAll('.radio-card input[name="'+groupName+'"]').forEach(r => {
+      r.closest('.radio-card').classList.remove('selected');
+    });
+    el.classList.add('selected');
+    el.querySelector('input').checked = true;
+  }
+
+  // Submit
+  document.getElementById('rsvp-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    const btn = document.getElementById('btn-submit');
+    btn.disabled = true;
+    btn.textContent = 'Submitting…';
+    const data = new FormData(this);
+    try {
+      const resp = await fetch(this.action, {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (resp.ok) {
+        document.getElementById('step-3').classList.remove('active');
+        document.getElementById('step-done').classList.add('active');
+        document.getElementById('step-indicator').style.display = 'none';
+        document.getElementById('step-labels').style.display = 'none';
+      } else {
+        btn.disabled = false;
+        btn.textContent = 'Submit RSVP 🎉';
+        alert('Something went wrong. Please try again or DM @maral20173 on Telegram.');
+      }
+    } catch (err) {
+      btn.disabled = false;
+      btn.textContent = 'Submit RSVP 🎉';
+      alert('Network error. Check your connection and try again.');
+    }
+  });
+</script>
+
+</body>
+</html>
